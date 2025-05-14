@@ -13,7 +13,6 @@
       <h2>학생 등록</h2>
       <form id="studentForm">
         <div class="form-grid">
-
           <div class="form-group">
             <label for="name">이름:</label>
             <input type="text" name="name" id="name" />
@@ -86,9 +85,32 @@
       const studentForm = document.getElementById("studentForm");
       const studentTableBody = document.getElementById("studentTableBody");
 
-      //Form Load 이벤트 처리하기
-      document.addEventListener("DOMContentLoaded",function(){
+      //Document Load 이벤트 처리하기
+      document.addEventListener("DOMContentLoaded", function () {
         loadStudents();
+      });
+
+      //Form Submit 이벤트 처리하기
+      studentForm.addEventListener("submit", function (event) {
+        //기본으로 설정된 Event가 동작하지 않도록 하기 위함
+        event.preventDefault();
+        console.log("Form 제출 되었음...");
+
+        //FormData 객체생성 <form>엘리먼트를 객체로 변환
+        const stuFormData = new FormData(studentForm);
+        stuFormData.forEach((value, key) => {
+          console.log(key + ' = ' +  value);
+        });
+
+        //사용자 정의 Student 객체 생성
+        const studentData = {
+          name: stuFormData.get("name").trim(),
+          studentNumber: stuFormData.get("studentNumber").trim(),
+          address: stuFormData.get("address").trim(),
+          phoneNumber: stuFormData.get("phoneNumber").trim(),
+          email: stuFormData.get("email").trim(),
+          dateOfBirth: stuFormData.get("dateOfBirth"),
+        };
       });
 
       //학생목록 로드하는 함수
