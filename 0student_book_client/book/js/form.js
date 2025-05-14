@@ -18,9 +18,9 @@ bookForm.addEventListener("submit", function (event) {
 
   //FormData 객체생성 <form>엘리먼트를 객체로 변환
   const bookFormData = new FormData(bookForm);
-  bookFormData.forEach((value, key) => {
-    console.log(key + " = " + value);
-  });
+  // bookFormData.forEach((value, key) => {
+  //   console.log(key + " = " + value);
+  // });
 
   //사용자 정의 Book 객체 생성 (공백제거)
   const bookData = {
@@ -59,12 +59,6 @@ function validateBook(book) {// 필수 필드 검사
 
     if (!book.price) {
         alert("가격을 입력해주세요.");
-        return false;
-    }
-
-    const bookPricePattern = /^[0-9]+$/;
-    if (!bookPricePattern.test(book.price)) {
-        alert("가격은 숫자만 입력 가능합니다.");
         return false;
     }
 
