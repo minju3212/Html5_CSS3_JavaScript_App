@@ -42,4 +42,7 @@
     * - POST api/students 서버와 통신하는 createStudent() 함수 구현
 * step8
     * - DELETE /api/students/1 서버와 통신하는 deleteStudent() 함수 구현
-    
+* step9
+    * - student 수정하기 전에 데이터 조회 먼저하기
+    * - GET /api/students/1 student 조회하는 editStudent() 함수 구현
+    * - 수정, 삭제 버튼의 스타일 추가하기
